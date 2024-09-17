@@ -1,5 +1,5 @@
 import { Tabs, Redirect } from "expo-router";
-import { Home, FileSearch, FileClock } from "lucide-react-native";
+import { Home, FileSearch, FileClock, NotebookPen } from "lucide-react-native";
 import { useAuth } from "~/context/auth-context";
 
 export default function TabLayout() {
@@ -26,9 +26,16 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="payments"
+        name="payment"
         options={{
-          title: "Payments History",
+          title: "Payment Form",
+          tabBarIcon: ({ color }) => <NotebookPen size={28} color={color} />,
+        }}
+      />
+      <Tabs.Screen
+        name="payment-history"
+        options={{
+          title: "Payment History",
           tabBarIcon: ({ color }) => <FileClock size={28} color={color} />,
         }}
       />

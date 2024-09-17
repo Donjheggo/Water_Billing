@@ -1,10 +1,10 @@
 import { View } from "react-native";
 import { Text } from "~/components/ui/text";
 
-export default function Payments() {
+export default function Screen() {
   return (
     <View>
-      <Text>Payments</Text>
+      <Text>Pay</Text>
     </View>
   );
 }

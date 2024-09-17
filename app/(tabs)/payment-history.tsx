@@ -4,7 +4,7 @@ import { Text } from "~/components/ui/text";
 export default function Screen() {
   return (
     <View>
-      <Text>Bills</Text>
+      <Text>Payments</Text>
     </View>
   );
 }
