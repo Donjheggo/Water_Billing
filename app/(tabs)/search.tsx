@@ -9,7 +9,7 @@ import { Text } from "~/components/ui/text";
 
 export type BillT = Tables<"bills">;
 
-export default function Screen() {
+export default function Search() {
   const { query } = useLocalSearchParams();
   const [bill, setBill] = useState<BillT[]>([]);
 

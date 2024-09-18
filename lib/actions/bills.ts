@@ -24,3 +24,21 @@ export async function SearchBill(searchQuery: string) {
     }
   }
 }
+
+export async function GetBills() {
+  try {
+    const { data, error } = await supabase.from("bills").select("*");
+
+    if (error) {
+      Alert.alert(error.message);
+      return [];
+    }
+
+    return data;
+  } catch (error) {
+    if (error instanceof Error) {
+      Alert.alert(error.message);
+      return [];
+    }
+  }
+}

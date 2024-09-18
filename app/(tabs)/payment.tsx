@@ -1,10 +1,15 @@
-import { View } from "react-native";
+import { View, SafeAreaView, ScrollView } from "react-native";
 import { Text } from "~/components/ui/text";
+import PaymentForm from "~/components/payment/payment-form";
 
-export default function Screen() {
+export default function Payment() {
   return (
-    <View>
-      <Text>Pay</Text>
-    </View>
+    <SafeAreaView className="h-full">
+      <ScrollView>
+        <View className="px-5">
+          <PaymentForm />
+        </View>
+      </ScrollView>
+    </SafeAreaView>
   );
 }

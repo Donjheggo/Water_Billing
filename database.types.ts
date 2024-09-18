@@ -12,6 +12,7 @@ export type Database = {
       bills: {
         Row: {
           amount: number
+          billing_number: string
           created_at: string
           due_date: string
           id: string
@@ -22,6 +23,7 @@ export type Database = {
         }
         Insert: {
           amount: number
+          billing_number: string
           created_at?: string
           due_date: string
           id?: string
@@ -32,6 +34,7 @@ export type Database = {
         }
         Update: {
           amount?: number
+          billing_number?: string
           created_at?: string
           due_date?: string
           id?: string
@@ -84,7 +87,7 @@ export type Database = {
         Row: {
           amount: number
           bill_id: string
-          client_id: string
+          billing_number: string | null
           client_name: string
           created_at: string
           gcash_ref_no: number
@@ -95,7 +98,7 @@ export type Database = {
         Insert: {
           amount: number
           bill_id?: string
-          client_id?: string
+          billing_number?: string | null
           client_name: string
           created_at?: string
           gcash_ref_no: number
@@ -106,7 +109,7 @@ export type Database = {
         Update: {
           amount?: number
           bill_id?: string
-          client_id?: string
+          billing_number?: string | null
           client_name?: string
           created_at?: string
           gcash_ref_no?: number
@@ -123,11 +126,11 @@ export type Database = {
             referencedColumns: ["id"]
           },
           {
-            foreignKeyName: "payments_client_id_fkey"
-            columns: ["client_id"]
+            foreignKeyName: "payments_billing_number_fkey"
+            columns: ["billing_number"]
             isOneToOne: false
-            referencedRelation: "clients"
-            referencedColumns: ["id"]
+            referencedRelation: "bills"
+            referencedColumns: ["billing_number"]
           },
           {
             foreignKeyName: "payments_client_name_fkey"
