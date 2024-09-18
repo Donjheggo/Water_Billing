@@ -5,6 +5,8 @@ import { Search } from "lucide-react-native";
 import { useRouter } from "expo-router";
 import { useColorScheme } from "~/lib/useColorScheme";
 import { NotebookPen, FileClock } from "lucide-react-native";
+import { supabase } from "~/lib/supabase";
+import { LogOut } from "lucide-react-native";
 
 const instructions = [
   "Search your name in the 'Search Bill' section.",
@@ -65,8 +67,22 @@ export default function Home() {
               <Text style={{ marginLeft: 5 }}>View History</Text>
             </Button>
           </View>
+          <Button
+            variant="secondary"
+            onPress={async() => await supabase.auth.signOut()}
+            size="lg"
+            className="flex flex-row mt-5 dark:bg-black "
+          >
+            {isDarkColorScheme ? (
+              <LogOut color="#fff" size={18} />
+            ) : (
+              <LogOut color="#000" size={18} />
+            )}
+            <Text style={{ marginLeft: 5 }} className="dark:text-white">
+              Sign out
+            </Text>
+          </Button>
         </View>
-        <View></View>
       </ScrollView>
     </SafeAreaView>
   );

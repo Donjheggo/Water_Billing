@@ -1,6 +1,5 @@
 import { View, Image, ScrollView, Pressable } from "react-native";
 import { Text } from "~/components/ui/text";
-import { Link } from "expo-router";
 import { useRouter } from "expo-router";
 
 export default function Screen() {
@@ -18,7 +17,7 @@ export default function Screen() {
           style={{ width: 200, height: 200 }}
         />
         <Text className="text-blue-800 font-semibold text-lg px-5 text-center">
-          Search your bill and pay where you are.
+          Search your bill and pay wherever you are.
         </Text>
         <Pressable
           onPress={() => router.push("/(auth)/sign-in")}
