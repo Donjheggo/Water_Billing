@@ -7,16 +7,13 @@ export default function Screen() {
   return (
     <ScrollView className="h-full bg-secondary">
       <View className="min-h-[80vh] flex justify-center items-center gap-5 p-6">
-        <Text className="text-3xl text-primary font-semibold">
-          Dinagat Island Water Billing
-        </Text>
         <Image
           source={require("../assets/images/auth.png")}
           resizeMode="contain"
           // className="w-[120] h-[120]"
           style={{ width: 200, height: 200 }}
         />
-        <Text className="text-blue-800 font-semibold text-lg px-5 text-center">
+        <Text className="text-blue-800 font-semibold text-xl px-5 text-center">
           Search your bill and pay wherever you are.
         </Text>
         <Pressable
