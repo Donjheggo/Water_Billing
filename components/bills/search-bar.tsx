@@ -15,7 +15,7 @@ export default function SearchBar() {
     <View className="relative justify-center">
       <Search style={styles.icon} />
       <Input
-        className="pl-12"
+        className="pl-12 dark:bg-black dark:text-white"
         placeholder=""
         defaultValue={params.query}
         onChangeText={(text) => {
