@@ -101,7 +101,7 @@ export default function PaymentForm() {
         >
           <SelectTrigger>
             <SelectValue
-              className="text-foreground text-sm native:text-lg"
+              className="text-foreground dark:text-white text-sm native:text-lg"
               placeholder="Select a billing number"
             />
           </SelectTrigger>
@@ -133,7 +133,7 @@ export default function PaymentForm() {
         >
           <SelectTrigger>
             <SelectValue
-              className="text-foreground text-sm native:text-lg"
+              className="text-foreground dark:text-white text-sm native:text-lg"
               placeholder="Select a client"
             />
           </SelectTrigger>

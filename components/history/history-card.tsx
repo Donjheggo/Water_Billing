@@ -19,19 +19,27 @@ export default function PaymentHistoryCard({ item }: { item: PaymentsT }) {
         </CardDescription>
       </CardHeader>
       <CardContent>
-        <Text>
+        <Text className="dark:text-white">
           Billing Number:{" "}
-          <Text className="font-semibold">{item.billing_number}</Text>
+          <Text className="font-semibold dark:text-white">
+            {item.billing_number}
+          </Text>
         </Text>
-        <Text>
-          Payor: <Text className="font-semibold">{item.owner_email}</Text>
+        <Text className="dark:text-white">
+          Payor:{" "}
+          <Text className="font-semibold dark:text-white">
+            {item.owner_email}
+          </Text>
         </Text>
-        <Text>
-          Amount: <Text className="font-semibold">{item.amount} </Text>
+        <Text className="dark:text-white">
+          Amount:{" "}
+          <Text className="font-semibold dark:text-white">{item.amount} </Text>
         </Text>
-        <Text>
+        <Text className="dark:text-white">
           Gcash Reference Number:{" "}
-          <Text className="font-semibold">{item.gcash_ref_no} </Text>
+          <Text className="font-semibold dark:text-white">
+            {item.gcash_ref_no}{" "}
+          </Text>
         </Text>
       </CardContent>
     </Card>
