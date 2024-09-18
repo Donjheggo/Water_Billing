@@ -19,7 +19,7 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="bills"
+        name="search"
         options={{
           title: "Search Bills",
           tabBarIcon: ({ color }) => <FileSearch size={28} color={color} />,

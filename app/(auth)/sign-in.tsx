@@ -82,7 +82,7 @@ const SignIn = () => {
       >
         <Text>Sign in</Text>
       </Button>
-      <Text>
+      <Text className="dark:text-secondary">
         Don't have an account?
         <Link href="/sign-up" className="text-primary">
           {" "}
