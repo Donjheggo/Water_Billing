@@ -17,7 +17,7 @@ export default function Screen() {
           // className="w-[120] h-[120]"
           style={{ width: 200, height: 200 }}
         />
-        <Text className="text-blue-800 font-semibold text-xl px-5 text-center">
+        <Text className="text-blue-800 font-semibold text-lg px-5 text-center">
           Search your bill and pay where you are.
         </Text>
         <Pressable
@@ -25,16 +25,7 @@ export default function Screen() {
           className="w-full"
         >
           <View className="w-full border text-center border-primary bg-primary rounded-lg p-5 items-center flex justify-center overflow-hidden">
-            <Text className="text-xl  text-white">Sign in</Text>
-          </View>
-        </Pressable>
-
-        <Pressable
-          onPress={() => router.push("/(auth)/sign-up")}
-          className="w-full"
-        >
-          <View className="w-full border text-center border-primary rounded-lg p-5 items-center flex justify-center overflow-hidden">
-            <Text className="text-xl text-primary">Sign up</Text>
+            <Text className="text-xl  text-white">Get Started</Text>
           </View>
         </Pressable>
       </View>
