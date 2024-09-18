@@ -5,7 +5,7 @@ import { Theme, ThemeProvider } from "@react-navigation/native";
 import { SplashScreen, Stack } from "expo-router";
 import { StatusBar } from "expo-status-bar";
 import * as React from "react";
-import { Platform } from "react-native";
+import { Platform, Image } from "react-native";
 import { NAV_THEME } from "~/lib/constants";
 import { useColorScheme } from "~/lib/useColorScheme";
 import { PortalHost } from "@rn-primitives/portal";
@@ -81,7 +81,9 @@ export default function RootLayout() {
             name="(auth)"
             options={{
               title: "",
-              headerLeft: () => <Text>Logo</Text>,
+              headerLeft: () => (
+                <Image source={require("../assets/images/favicon.png")} style={{width: 35, height: 35}}/>
+              ),
               headerRight: () => <ThemeToggle />,
             }}
           />
@@ -89,7 +91,9 @@ export default function RootLayout() {
             name="(tabs)"
             options={{
               title: "",
-              headerLeft: () => <Text>Logo</Text>,
+              headerLeft: () => (
+                <Image source={require("../assets/images/favicon.png")} style={{width: 35, height: 35}}/>
+              ),
               headerRight: () => <ThemeToggle />,
             }}
           />
