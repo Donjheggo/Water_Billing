@@ -24,7 +24,7 @@ export default function Search() {
   }, [query]);
 
   return (
-    <SafeAreaView>
+    <SafeAreaView className="h-full">
       <ScrollView>
         <View className="px-5">
           <SearchBar />

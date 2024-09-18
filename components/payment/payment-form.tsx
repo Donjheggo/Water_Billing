@@ -20,7 +20,7 @@ import { Tables } from "~/database.types";
 import { GetClients } from "~/lib/actions/clients";
 import { GetBills } from "~/lib/actions/bills";
 import { BillT } from "~/app/(tabs)/search";
-import SendPayment from "~/lib/actions/payment";
+import { SendPayment } from "~/lib/actions/payment";
 
 export default function PaymentForm() {
   const { user } = useAuth();
@@ -70,10 +70,11 @@ export default function PaymentForm() {
       !form.amount ||
       !form.gcash_ref_no
     ) {
-      Alert.alert(JSON.stringify(form))
+      Alert.alert(JSON.stringify(form));
       Alert.alert("Please fill out all fields.");
       return;
-    }1
+    }
+    1;
     setLoading(true);
     try {
       await SendPayment(form);
@@ -181,7 +182,7 @@ export default function PaymentForm() {
         onPress={handleSubmit}
         disabled={loading}
         variant="default"
-        className="text-white mt-2"
+        className="text-white mt-5"
       >
         <Text>Submit Payment</Text>
       </Button>
