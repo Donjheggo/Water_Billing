@@ -14,8 +14,8 @@
         "buildType": "apk"
       },
       "env": {
-        "EXPO_PUBLIC_SUPABASE_URL": "",
-        "EXPO_PUBLIC_SUPABASE_ANON_KEY": ""
+        "EXPO_PUBLIC_SUPABASE_URL": "https://tzdjlmewneboidbyalfg.supabase.co",
+        "EXPO_PUBLIC_SUPABASE_ANON_KEY": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InR6ZGpsbWV3bmVib2lkYnlhbGZnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjY1Nzc4ODAsImV4cCI6MjA0MjE1Mzg4MH0.RjibuEcUCVBsQjkAni8TzQHXfAy5G6WLgvy07yZF4I0"
       }
     },
     "production": {
