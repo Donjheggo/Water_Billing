@@ -13,43 +13,43 @@ export type Database = {
         Row: {
           amount: number
           billing_number: string
+          client_id: string
           created_at: string
           due_date: string
           id: string
-          isPaid: boolean
-          name: string
+          is_paid: boolean
           penalty: number
           penalty_date: string
         }
         Insert: {
           amount: number
           billing_number: string
+          client_id?: string
           created_at?: string
           due_date: string
           id?: string
-          isPaid?: boolean
-          name: string
+          is_paid?: boolean
           penalty: number
           penalty_date: string
         }
         Update: {
           amount?: number
           billing_number?: string
+          client_id?: string
           created_at?: string
           due_date?: string
           id?: string
-          isPaid?: boolean
-          name?: string
+          is_paid?: boolean
           penalty?: number
           penalty_date?: string
         }
         Relationships: [
           {
-            foreignKeyName: "bill_name_fkey"
-            columns: ["name"]
+            foreignKeyName: "bills_client_id_fkey"
+            columns: ["client_id"]
             isOneToOne: false
             referencedRelation: "clients"
-            referencedColumns: ["name"]
+            referencedColumns: ["id"]
           },
         ]
       }
@@ -86,45 +86,29 @@ export type Database = {
       payments: {
         Row: {
           amount: number
-          bill_id: string
-          billing_number: string | null
-          client_name: string
+          billing_number: string
           created_at: string
           gcash_ref_no: number
           id: string
-          owner_email: string
-          owner_id: string
+          user_id: string
         }
         Insert: {
           amount: number
-          bill_id?: string
-          billing_number?: string | null
-          client_name: string
+          billing_number: string
           created_at?: string
           gcash_ref_no: number
           id?: string
-          owner_email: string
-          owner_id?: string
+          user_id?: string
         }
         Update: {
           amount?: number
-          bill_id?: string
-          billing_number?: string | null
-          client_name?: string
+          billing_number?: string
           created_at?: string
           gcash_ref_no?: number
           id?: string
-          owner_email?: string
-          owner_id?: string
+          user_id?: string
         }
         Relationships: [
-          {
-            foreignKeyName: "payments_bill_id_fkey"
-            columns: ["bill_id"]
-            isOneToOne: false
-            referencedRelation: "bills"
-            referencedColumns: ["id"]
-          },
           {
             foreignKeyName: "payments_billing_number_fkey"
             columns: ["billing_number"]
@@ -133,22 +117,8 @@ export type Database = {
             referencedColumns: ["billing_number"]
           },
           {
-            foreignKeyName: "payments_client_name_fkey"
-            columns: ["client_name"]
-            isOneToOne: false
-            referencedRelation: "clients"
-            referencedColumns: ["name"]
-          },
-          {
-            foreignKeyName: "payments_owner_email_fkey"
-            columns: ["owner_email"]
-            isOneToOne: false
-            referencedRelation: "users"
-            referencedColumns: ["email"]
-          },
-          {
-            foreignKeyName: "payments_owner_id_fkey"
-            columns: ["owner_id"]
+            foreignKeyName: "payments_user_id_fkey"
+            columns: ["user_id"]
             isOneToOne: false
             referencedRelation: "users"
             referencedColumns: ["id"]

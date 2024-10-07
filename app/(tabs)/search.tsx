@@ -4,14 +4,12 @@ import Bill from "~/components/bills/bill";
 import { useEffect, useState } from "react";
 import { SearchBill } from "~/lib/actions/bills";
 import { useLocalSearchParams } from "expo-router";
-import { Tables } from "~/database.types";
 import { Text } from "~/components/ui/text";
-
-export type BillT = Tables<"bills">;
+import type { BillsT } from "~/components/bills/bill";
 
 export default function Search() {
   const { query } = useLocalSearchParams();
-  const [bill, setBill] = useState<BillT[]>([]);
+  const [bill, setBill] = useState<BillsT[]>([]);
 
   useEffect(() => {
     const fetchBill = async () => {

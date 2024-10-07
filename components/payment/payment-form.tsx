@@ -12,39 +12,27 @@ import { Text } from "~/components/ui/text";
 import { Input } from "~/components/ui/input";
 import { Label } from "~/components/ui/label";
 import { Button } from "~/components/ui/button";
-import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { useAuth } from "~/context/auth-context";
-import { supabase } from "~/lib/supabase";
 import { router } from "expo-router";
 import { Tables } from "~/database.types";
 import { GetClients } from "~/lib/actions/clients";
 import { GetBills } from "~/lib/actions/bills";
-import { BillT } from "~/app/(tabs)/search";
+import type { BillsT } from "../bills/bill";
 import { SendPayment } from "~/lib/actions/payment";
 
 export default function PaymentForm() {
   const { user } = useAuth();
-  const [data, setData] = useState<{ clients: ClientT[]; bills: BillT[] }>({
+  const [data, setData] = useState<{ clients: ClientT[]; bills: BillsT[] }>({
     clients: [],
     bills: [],
   });
   const [loading, setLoading] = useState<boolean>(false);
   const [form, setForm] = useState<PaymentFormT>({
-    owner_id: user?.id || "",
-    owner_email: user?.email || "",
+    user_id: user?.id || "",
     billing_number: "",
-    client_name: "",
     amount: 0,
     gcash_ref_no: 0,
   });
-
-  const insets = useSafeAreaInsets();
-  const contentInsets = {
-    top: insets.top,
-    bottom: insets.bottom,
-    left: 5,
-    right: 12,
-  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -65,7 +53,7 @@ export default function PaymentForm() {
 
   const handleSubmit = async () => {
     if (
-      !form.client_name ||
+      !form.user_id ||
       !form.billing_number ||
       !form.amount ||
       !form.gcash_ref_no
@@ -105,43 +93,14 @@ export default function PaymentForm() {
               placeholder="Select a billing number"
             />
           </SelectTrigger>
-          <SelectContent insets={contentInsets}>
+          <SelectContent>
             <SelectGroup>
               {data?.bills?.map((item, index) => (
                 <SelectItem
                   key={index}
-                  label={item.billing_number}
+                  label={`${item.billing_number} - ${item.client_id?.name}`}
                   value={item.billing_number}
                 >
-                  {item.billing_number}
-                </SelectItem>
-              ))}
-            </SelectGroup>
-          </SelectContent>
-        </Select>
-      </View>
-
-      <View>
-        <Label nativeID="client" className="pb-1">
-          Client Name
-        </Label>
-        <Select
-          defaultValue={{ value: "", label: "" }}
-          onValueChange={(value) =>
-            setForm({ ...form, client_name: value?.value || "" })
-          }
-        >
-          <SelectTrigger>
-            <SelectValue
-              className="text-foreground dark:text-white text-sm native:text-lg"
-              placeholder="Select a client"
-            />
-          </SelectTrigger>
-          <SelectContent insets={contentInsets}>
-            <SelectGroup>
-              {data?.clients?.map((item, index) => (
-                <SelectItem key={index} label={item.name} value={item.name}>
-                  {item.name}
                 </SelectItem>
               ))}
             </SelectGroup>
@@ -192,10 +151,8 @@ export default function PaymentForm() {
 
 export type ClientT = Tables<"clients">;
 export type PaymentFormT = {
-  owner_id: string;
-  owner_email: string;
+  user_id: string;
   billing_number: string;
-  client_name: string;
   amount: number;
   gcash_ref_no: number;
 };

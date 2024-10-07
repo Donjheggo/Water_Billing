@@ -17,12 +17,14 @@ export async function SendPayment(form: PaymentFormT) {
   }
 }
 
-export async function GetPayments(id: string) {
+export async function GetPayments(user_id: string) {
   try {
     const { data, error } = await supabase
       .from("payments")
-      .select("*")
-      .eq("owner_id", id);
+      .select(
+        `*, user_id!inner(email), billing_number!inner(*,client_id!inner(name))`
+      )
+      .eq("user_id", user_id);
     if (error) {
       Alert.alert(error.message);
       return [];
